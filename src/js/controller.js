@@ -126,12 +126,8 @@ const showRecipe = async () => {
                </li>`;
              })
              .join("")}
-        
-
-          
           </ul>
         </div>
-
         <div class="recipe__directions">
           <h2 class="heading--2">How to cook it</h2>
           <p class="recipe__directions-text">
