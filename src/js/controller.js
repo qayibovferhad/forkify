@@ -42,10 +42,10 @@ const showRecipe = async () => {
     if (!res.ok) throw new Error(`${data.message}  ${res.status}`);
 
     let { recipe } = data.data;
-
     recipe = {
       id: recipe.id,
       ingredients: recipe.ingredients,
+      publisher: recipe.publisher,
       servings: recipe.servings,
       title: recipe.title,
       image: recipe.image_url,
@@ -53,11 +53,12 @@ const showRecipe = async () => {
       cookingTime: recipe.cooking_time,
     };
 
+    console.log(recipe);
     const markup = `
      <figure class="recipe__fig">
           <img src="${recipe.image}" alt="Tomato" class="recipe__img" />
           <h1 class="recipe__title">
-            <span>Pasta with tomato cream sauce</span>
+            <span>${recipe.title}</span>
           </h1>
         </figure>
 
@@ -120,7 +121,7 @@ const showRecipe = async () => {
                  <div class="recipe__quantity">${rec.quantity}</div>
                  <div class="recipe__description">
                    <span class="recipe__unit">${rec.unit}</span>
-                   ${res.description}
+                   ${rec.description}
                  </div>
                </li>`;
              })
@@ -135,7 +136,9 @@ const showRecipe = async () => {
           <h2 class="heading--2">How to cook it</h2>
           <p class="recipe__directions-text">
             This recipe was carefully designed and tested by
-            <span class="recipe__publisher">The Pioneer Woman</span>. Please check out
+            <span class="recipe__publisher">${
+              recipe.publisher
+            }</span>. Please check out
             directions at their website.
           </p>
           <a
