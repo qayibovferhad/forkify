@@ -6,7 +6,7 @@ class ResultsView extends View {
   _error = "No recipes found for your query! Please try again!";
   _message = "";
 
-  _generateRecipeMarkup() {
+  _generateMarkup() {
     return this._data.map(this._generatePreview).join("");
   }
 

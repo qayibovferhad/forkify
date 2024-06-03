@@ -594,6 +594,8 @@ var _searchView = require("./view/searchView");
 var _searchViewDefault = parcelHelpers.interopDefault(_searchView);
 var _resultsView = require("././view/resultsView");
 var _resultsViewDefault = parcelHelpers.interopDefault(_resultsView);
+var _paginationView = require("./view/paginationView");
+var _paginationViewDefault = parcelHelpers.interopDefault(_paginationView);
 const controllerRecipe = async ()=>{
     try {
         const { hash } = window.location;
@@ -613,19 +615,25 @@ const controllerSearchResults = async ()=>{
         const query = (0, _searchViewDefault.default).getSearchQuery();
         (0, _resultsViewDefault.default).renderSpinner();
         await _model.getSearchResults(query);
-        (0, _resultsViewDefault.default).render(_model.state.search.results);
+        (0, _resultsViewDefault.default).render(_model.getSearchResultsPage());
+        (0, _paginationViewDefault.default).render(_model.state.search);
     } catch (e) {
         console.log(e);
         (0, _resultsViewDefault.default).renderErrorMessage();
     }
 };
+const controllerSearchPagination = async (goToPage)=>{
+    (0, _resultsViewDefault.default).render(_model.getSearchResultsPage(goToPage));
+    (0, _paginationViewDefault.default).render(_model.state.search);
+};
 const init = ()=>{
     (0, _searchViewDefault.default).addHandlerSearch(controllerSearchResults);
     (0, _recipeViewDefault.default).addHandlerRender(controllerRecipe);
+    (0, _paginationViewDefault.default).addHandlerClick(controllerSearchPagination);
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","core-js/modules/web.immediate.js":"49tUX","regenerator-runtime":"dXNgZ","./model":"Y4A21","./view/recipeView":"7Olh7","./view/searchView":"blwqv","././view/resultsView":"46Nfk"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","core-js/modules/web.immediate.js":"49tUX","regenerator-runtime":"dXNgZ","./model":"Y4A21","./view/recipeView":"7Olh7","./view/searchView":"blwqv","././view/resultsView":"46Nfk","./view/paginationView":"9Reww"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -2479,13 +2487,16 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "getRecipeData", ()=>getRecipeData);
 parcelHelpers.export(exports, "getSearchResults", ()=>getSearchResults);
+parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
 var _config = require("./config");
 var _helpers = require("./helpers");
 const state = {
     recipe: {},
     search: {
         query: "",
-        results: []
+        results: [],
+        resultsPerPage: (0, _config.RES_PER_PAGE),
+        currentPage: 1
     }
 };
 const getRecipeData = async function(id) {
@@ -2505,14 +2516,12 @@ const getRecipeData = async function(id) {
         };
         state.recipe = recipe;
     } catch (err) {
-        console.log(err);
         throw err;
     }
 };
 const getSearchResults = async function(query) {
     try {
         const data = await (0, _helpers.getJSON)(`${(0, _config.API_URL)}?search=${query}`);
-        console.log("data", data);
         state.search.results = data.data.recipes.map((rec)=>({
                 id: rec.id,
                 publisher: rec.publisher,
@@ -2523,14 +2532,22 @@ const getSearchResults = async function(query) {
         console.log(err);
     }
 };
+const getSearchResultsPage = function(page = state.search.currentPage) {
+    state.search.currentPage = page;
+    const start = (page - 1) * state.search.resultsPerPage;
+    const end = page * state.search.resultsPerPage;
+    return state.search.results.slice(start, end);
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./config":"k5Hzs","./helpers":"hGI1E"}],"k5Hzs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "API_URL", ()=>API_URL);
 parcelHelpers.export(exports, "TIMEOUT_SEC", ()=>TIMEOUT_SEC);
+parcelHelpers.export(exports, "RES_PER_PAGE", ()=>RES_PER_PAGE);
 const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes/";
 const TIMEOUT_SEC = 10;
+const RES_PER_PAGE = 10;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2577,7 +2594,7 @@ class RecipeView extends (0, _viewDefault.default) {
             "load"
         ].forEach((e)=>window.addEventListener(e, handler));
     }
-    _generateRecipeMarkup() {
+    _generateMarkup() {
         const markup = `
      <figure class="recipe__fig">
           <img src="${this._data.image}" alt="Tomato" class="recipe__img" />
@@ -2972,7 +2989,7 @@ class View {
     render(data) {
         if (!data || Array.isArray(data) && data.length === 0) return this.renderErrorMessage();
         this._data = data;
-        const markup = this._generateRecipeMarkup();
+        const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
@@ -2990,7 +3007,6 @@ class View {
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
     renderErrorMessage(message = this._error) {
-        console.log(message);
         const markup = `
      <div class="error">
             <div>
@@ -3003,7 +3019,6 @@ class View {
           `;
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
-        console.log(this._parentElement);
     }
     renderMessage() {
         const markup = `
@@ -3057,7 +3072,7 @@ class ResultsView extends (0, _viewDefault.default) {
     _parentElement = document.querySelector(".results");
     _error = "No recipes found for your query! Please try again!";
     _message = "";
-    _generateRecipeMarkup() {
+    _generateMarkup() {
         return this._data.map(this._generatePreview).join("");
     }
     _generatePreview(recipe) {
@@ -3082,6 +3097,59 @@ class ResultsView extends (0, _viewDefault.default) {
 }
 exports.default = new ResultsView();
 
-},{"./View":"gAkKI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}]},["hycaY","aenu9"], "aenu9", "parcelRequire94c2")
+},{"./View":"gAkKI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}],"9Reww":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _iconsSvg = require("url:../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+class PaginationView extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".pagination");
+    _generateMarkup() {
+        const currentPage = this._data.currentPage;
+        const pages = Math.ceil(this._data.results.length / this._data.resultsPerPage);
+        const nextButton = this._generateNextButton();
+        const prevButton = this._generatePrevButton();
+        if (currentPage === 1 && currentPage < pages) return nextButton(currentPage + 1);
+        if (currentPage === pages && pages > 1) return prevButton(currentPage - 1);
+        if (currentPage < pages && currentPage > 1) return `${prevButton(currentPage - 1)} ${nextButton(currentPage + 1)} `;
+        return "";
+    }
+    _generateNextButton() {
+        return (goToPage)=>{
+            return `<button data-goToPage="${goToPage}" class="btn--inline pagination__btn--next">
+      <span>Page ${goToPage}</span>
+      <svg class="search__icon">
+        <use href="${0, _iconsSvgDefault.default}#icon-arrow-right"></use>
+      </svg>
+    </button>;
+    `;
+        };
+    }
+    _generatePrevButton() {
+        return (goToPage)=>{
+            return `
+     <button data-goToPage="${goToPage}"  class="btn--inline pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="${0, _iconsSvgDefault.default}#icon-arrow-left"></use>
+            </svg>
+            <span>Page ${goToPage}</span>
+          </button>
+    `;
+        };
+    }
+    addHandlerClick(handler) {
+        this._parentElement.addEventListener("click", function(e) {
+            const btn = e.target.closest(".btn--inline");
+            if (!btn) return;
+            const goToPage = +btn.dataset.gotopage;
+            handler(goToPage);
+        });
+    }
+}
+exports.default = new PaginationView();
+
+},{"./View":"gAkKI","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["hycaY","aenu9"], "aenu9", "parcelRequire94c2")
 
 //# sourceMappingURL=index.e37f48ea.js.map

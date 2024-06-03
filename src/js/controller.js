@@ -4,6 +4,7 @@ import "core-js/stable";
 import "regenerator-runtime";
 import searchView from "./view/searchView";
 import resultsView from "././view/resultsView";
+import paginationView from "./view/paginationView";
 
 const controllerRecipe = async () => {
   try {
@@ -28,20 +29,30 @@ const controllerRecipe = async () => {
 const controllerSearchResults = async () => {
   try {
     const query = searchView.getSearchQuery();
+
     resultsView.renderSpinner();
 
     await model.getSearchResults(query);
 
-    resultsView.render(model.state.search.results);
+    resultsView.render(model.getSearchResultsPage());
+
+    paginationView.render(model.state.search);
   } catch (e) {
     console.log(e);
     resultsView.renderErrorMessage();
   }
 };
 
+const controllerSearchPagination = async (goToPage) => {
+  resultsView.render(model.getSearchResultsPage(goToPage));
+
+  paginationView.render(model.state.search);
+};
+
 const init = () => {
   searchView.addHandlerSearch(controllerSearchResults);
   recipeView.addHandlerRender(controllerRecipe);
+  paginationView.addHandlerClick(controllerSearchPagination);
 };
 
 init();

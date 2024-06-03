@@ -9,7 +9,7 @@ export default class View {
 
     this._data = data;
 
-    const markup = this._generateRecipeMarkup();
+    const markup = this._generateMarkup();
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
@@ -31,7 +31,6 @@ export default class View {
   }
 
   renderErrorMessage(message = this._error) {
-    console.log(message);
     const markup = `
      <div class="error">
             <div>
@@ -44,7 +43,6 @@ export default class View {
           `;
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
-    console.log(this._parentElement);
   }
 
   renderMessage() {

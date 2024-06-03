@@ -11,7 +11,7 @@ class RecipeView extends View {
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
   }
 
-  _generateRecipeMarkup() {
+  _generateMarkup() {
     const markup = `
      <figure class="recipe__fig">
           <img src="${this._data.image}" alt="Tomato" class="recipe__img" />
