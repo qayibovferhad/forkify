@@ -49,9 +49,16 @@ const controllerSearchPagination = async (goToPage) => {
   paginationView.render(model.state.search);
 };
 
+const controllerUpdateServings = (updateTo) => {
+  model.updateRecipeServings(updateTo);
+
+  recipeView.render(model.state.recipe);
+};
+
 const init = () => {
   searchView.addHandlerSearch(controllerSearchResults);
   recipeView.addHandlerRender(controllerRecipe);
+  recipeView.updateServings(controllerUpdateServings);
   paginationView.addHandlerClick(controllerSearchPagination);
 };
 
