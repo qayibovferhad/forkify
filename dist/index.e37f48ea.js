@@ -602,6 +602,7 @@ const controllerRecipe = async ()=>{
         const id = hash.slice(1);
         if (!id) return;
         (0, _recipeViewDefault.default).renderSpinner();
+        (0, _resultsViewDefault.default).update(_model.getSearchResultsPage());
         await _model.getRecipeData(id);
         let { recipe } = _model.state;
         (0, _recipeViewDefault.default).render(recipe);
@@ -628,7 +629,7 @@ const controllerSearchPagination = async (goToPage)=>{
 };
 const controllerUpdateServings = (updateTo)=>{
     _model.updateRecipeServings(updateTo);
-    (0, _recipeViewDefault.default).render(_model.state.recipe);
+    (0, _recipeViewDefault.default).update(_model.state.recipe);
 };
 const init = ()=>{
     (0, _searchViewDefault.default).addHandlerSearch(controllerSearchResults);
@@ -3013,6 +3014,18 @@ class View {
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
+    update(data) {
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+        const newDOM = document.createRange().createContextualFragment(newMarkup);
+        const newElements = Array.from(newDOM.querySelectorAll("*"));
+        const curElements = Array.from(this._parentElement.querySelectorAll("*"));
+        newElements.forEach((newEl, i)=>{
+            const curEl = curElements[i];
+            if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== "") curEl.textContent = newEl.textContent;
+            if (!newEl.isEqualNode(curEl)) Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+        });
+    }
     _clear() {
         this._parentElement.innerHTML = "";
     }
@@ -3096,9 +3109,10 @@ class ResultsView extends (0, _viewDefault.default) {
         return this._data.map(this._generatePreview).join("");
     }
     _generatePreview(recipe) {
+        let id = window.location.hash.slice(1);
         return `
     <li class="preview">
-            <a class="preview__link preview__link--active" href="#${recipe.id}">
+            <a class="preview__link ${id === recipe.id ? "preview__link--active" : ""}" href="#${recipe.id}">
               <figure class="preview__fig">
                 <img src="${recipe.image}" alt="${recipe.title}" />
               </figure>
