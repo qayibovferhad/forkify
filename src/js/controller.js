@@ -7,6 +7,7 @@ import resultsView from "././view/resultsView";
 import paginationView from "./view/paginationView";
 import bookmarksView from "./view/bookmarksView";
 import previewView from "./view/previewView";
+import addRecipeView from "./view/addRecipeView";
 
 const controllerRecipe = async () => {
   try {
@@ -72,11 +73,15 @@ const controllerAddBookmark = function () {
 };
 
 const controllerBookmark = function () {
-  console.log(model.state.bookmarks);
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controllerUpload = function (data) {
+  console.log(data);
+};
+
 const init = () => {
+  addRecipeView._addHandlerUpload(controllerUpload);
   bookmarksView.addHandlerRender(controllerBookmark);
   searchView.addHandlerSearch(controllerSearchResults);
   recipeView.addHandlerRender(controllerRecipe);
