@@ -8,9 +8,19 @@ const timeout = function (s) {
   });
 };
 
-export const getJSON = async function (url) {
+export const AJAX = async function (url, recipeData = undefined) {
   try {
-    const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
+    const fetchPro = recipeData
+      ? await fetch(url, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(recipeData),
+        })
+      : fetch(url);
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
 
     let data = await res.json();
 
@@ -21,3 +31,39 @@ export const getJSON = async function (url) {
     throw e;
   }
 };
+
+// export const getJSON = async function (url) {
+//   try {
+//     const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
+
+//     let data = await res.json();
+
+//     if (!res.ok) throw new Error(`${data.message}  ${res.status}`);
+
+//     return data;
+//   } catch (e) {
+//     throw e;
+//   }
+// };
+
+// export const sendJSON = async function (url, recipeData) {
+//   try {
+//     const fetchPro = await fetch(url, {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       method: "POST",
+//       body: JSON.stringify(recipeData),
+//     });
+
+//     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+
+//     let data = await res.json();
+
+//     if (!res.ok) throw new Error(`${data.message}  ${res.status}`);
+
+//     return data;
+//   } catch (e) {
+//     throw e;
+//   }
+// };

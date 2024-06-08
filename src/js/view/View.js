@@ -77,6 +77,7 @@ export default class View {
   }
 
   renderMessage() {
+    console.log("11111");
     const markup = `
    
    <div class="recipe">
@@ -86,9 +87,9 @@ export default class View {
               <use href="src/img/${icons}#icon-smile"></use>
             </svg>
           </div>
-          <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+          <p>${this._message}</p>
         </div>`;
-
-    return markup;
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 }

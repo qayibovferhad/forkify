@@ -8,6 +8,7 @@ import paginationView from "./view/paginationView";
 import bookmarksView from "./view/bookmarksView";
 import previewView from "./view/previewView";
 import addRecipeView from "./view/addRecipeView";
+import { CLOSE_MODAL_SEC } from "./config";
 
 const controllerRecipe = async () => {
   try {
@@ -76,8 +77,25 @@ const controllerBookmark = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
-const controllerUpload = function (data) {
-  console.log(data);
+const controllerUpload = async function (data) {
+  try {
+    addRecipeView.renderSpinner();
+
+    await model.uploadRecipe(data);
+
+    recipeView.render(model.state.recipe);
+
+    addRecipeView.renderMessage();
+
+    bookmarksView.render(model.state.bookmarks);
+
+    window.history.pushState(null, "", `#${model.state.recipe.id}`);
+    setTimeout(() => {
+      addRecipeView._toggleModal();
+    }, CLOSE_MODAL_SEC * 1000);
+  } catch (e) {
+    addRecipeView.renderErrorMessage(e);
+  }
 };
 
 const init = () => {

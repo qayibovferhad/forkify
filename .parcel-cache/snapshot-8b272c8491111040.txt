@@ -1,18 +1,18 @@
 9568
 74/home/cubics/Desktop/front/javascript/forkify/dist/forkify.3464ddca.js.map1717275124560501161 0
-73/home/cubics/Desktop/front/javascript/forkify/dist/index.5cd32be8.css.map1717613648748225074 0
-69/home/cubics/Desktop/front/javascript/forkify/dist/icons.dfd7a6db.svg1717613648748225074 0
-68/home/cubics/Desktop/front/javascript/forkify/dist/logo.726d37a8.png1717613648716225073 0
-50/home/cubics/Desktop/front/javascript/forkify/dist1717613894624232578 1
+73/home/cubics/Desktop/front/javascript/forkify/dist/index.5cd32be8.css.map1717781499220162543 0
+69/home/cubics/Desktop/front/javascript/forkify/dist/icons.dfd7a6db.svg1717781499276162545 0
+68/home/cubics/Desktop/front/javascript/forkify/dist/logo.726d37a8.png1717781499256162544 0
+50/home/cubics/Desktop/front/javascript/forkify/dist1717781615400166088 1
 72/home/cubics/Desktop/front/javascript/forkify/src/js/view/resultsView.js1717611925488172484 0
 74/home/cubics/Desktop/front/javascript/forkify/src/js/view/bookmarksView.js1717613564752222511 0
-63/home/cubics/Desktop/front/javascript/forkify/src/js/helpers.js1717330238396595867 0
-62/home/cubics/Desktop/front/javascript/forkify/src/js/config.js1717431344909585160 0
+63/home/cubics/Desktop/front/javascript/forkify/src/js/helpers.js1717848797556397157 0
+62/home/cubics/Desktop/front/javascript/forkify/src/js/config.js1717846367608323001 0
 63/home/cubics/Desktop/front/javascript/forkify/src/img/icons.svg1717275694048518540 0
 53/home/cubics/Desktop/front/javascript/forkify/src/img1717259591888027141 1
 71/home/cubics/Desktop/front/javascript/forkify/src/sass/_components.scss1717259421120021930 0
 67/home/cubics/Desktop/front/javascript/forkify/src/sass/main.css.map1717259657400029141 0
-71/home/cubics/Desktop/front/javascript/forkify/src/js/view/recipeView.js1717611362760155311 0
+71/home/cubics/Desktop/front/javascript/forkify/src/js/view/recipeView.js1717849164928408368 0
 79/home/cubics/Desktop/front/javascript/forkify/node_modules/ansi-styles/index.js1717780575736134360 0
 121/home/cubics/Desktop/front/javascript/forkify/node_modules/abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js1717780575760134361 0
 107/home/cubics/Desktop/front/javascript/forkify/node_modules/abortcontroller-polyfill/dist/abortcontroller.js1717780575788134362 0
@@ -197,7 +197,7 @@
 92/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/lib/replace/property/font.js1717780575920134366 0
 84/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/lib/replace/property1717780575920134366 1
 82/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/lib/replace/atrule1717780575924134366 1
-68/home/cubics/Desktop/front/javascript/forkify/dist/index.e37f48ea.js1717613894620232578 0
+68/home/cubics/Desktop/front/javascript/forkify/dist/index.e37f48ea.js1717781615400166088 0
 84/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/lib/replace/color.js1717780575900134365 0
 85/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/lib/replace/Atrule.js1717780575896134365 0
 96/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/lib/replace/AttributeSelector.js1717780575896134365 0
@@ -1455,7 +1455,7 @@
 67/home/cubics/Desktop/front/javascript/forkify/node_modules/lmdb/src1717780575988134368 1
 80/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/codeframe/lib1717780575908134366 1
 76/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/codeframe1717780575908134366 1
-65/home/cubics/Desktop/front/javascript/forkify/src/js/view/View.js1717611782200168112 0
+65/home/cubics/Desktop/front/javascript/forkify/src/js/view/View.js1717846338952322126 0
 105/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/core/src/requests/AssetGraphRequest.js1717780575892134365 0
 97/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/packager-js/src/.eslintrc.json1717780575852134364 0
 104/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/packager-js/src/GlobalOutputFormat.js1717780575820134363 0
@@ -1941,7 +1941,7 @@
 85/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/transformer-js/src1717780575780134362 1
 117/home/cubics/Desktop/front/javascript/forkify/node_modules/@swc/helpers/_/_class_private_field_loose_key/package.json1717780576028134369 0
 103/home/cubics/Desktop/front/javascript/forkify/node_modules/@swc/helpers/_/_async_generator/package.json1717780576004134369 0
-66/home/cubics/Desktop/front/javascript/forkify/src/js/controller.js1717781508168162816 0
+66/home/cubics/Desktop/front/javascript/forkify/src/js/controller.js1717849513336419001 0
 82/home/cubics/Desktop/front/javascript/forkify/node_modules/domutils/lib/index.d.ts1717780575840134364 0
 90/home/cubics/Desktop/front/javascript/forkify/node_modules/@swc/helpers/_/_async_generator1717780576004134369 1
 106/home/cubics/Desktop/front/javascript/forkify/node_modules/@swc/helpers/_/_async_to_generator/package.json1717780576004134369 0
@@ -2090,7 +2090,7 @@
 81/home/cubics/Desktop/front/javascript/forkify/node_modules/css-tree/cjs/generator1717780575944134367 1
 101/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/packager-js/lib/CJSOutputFormat.js1717780575744134361 0
 99/home/cubics/Desktop/front/javascript/forkify/node_modules/css-tree/cjs/syntax/config/generator.cjs1717780575900134365 0
-72/home/cubics/Desktop/front/javascript/forkify/src/js/view/previewView.js1717613709696226934 0
+72/home/cubics/Desktop/front/javascript/forkify/src/js/view/previewView.js1717849319504413086 0
 96/home/cubics/Desktop/front/javascript/forkify/node_modules/css-tree/cjs/syntax/config/parser.cjs1717780575932134366 0
 80/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/optimizer-swc1717780575756134361 1
 95/home/cubics/Desktop/front/javascript/forkify/node_modules/css-tree/cjs/syntax/config/lexer.cjs1717780575920134366 0
@@ -3091,7 +3091,7 @@
 97/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/set/is-superset-of.js1717780576240134376 0
 99/home/cubics/Desktop/front/javascript/forkify/node_modules/css-tree/lib/syntax/node/SelectorList.js1717780576040134370 0
 100/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/typed-array/find-last-index.js1717780576168134374 0
-71/home/cubics/Desktop/front/javascript/forkify/dist/favicon.8b2f57bf.png1717613648728225074 0
+71/home/cubics/Desktop/front/javascript/forkify/dist/favicon.8b2f57bf.png1717781499236162543 0
 81/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/stage/index.js1717780576228134375 0
 92/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/stable/string/includes.js1717780576208134375 0
 98/home/cubics/Desktop/front/javascript/forkify/node_modules/htmlparser2/lib/WritableStream.d.ts.map1717780575816134363 0
@@ -3169,7 +3169,7 @@
 101/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/typed-array/from-async.js1717780576184134374 0
 93/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/full/instance/find-last.js1717780576172134374 0
 93/home/cubics/Desktop/front/javascript/forkify/node_modules/caniuse-lite/data/features/flac.js1717780576052134370 0
-74/home/cubics/Desktop/front/javascript/forkify/src/js/view/addRecipeView.js1717781615368166088 0
+74/home/cubics/Desktop/front/javascript/forkify/src/js/view/addRecipeView.js1717846102780314919 0
 95/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/modules/web.url.can-parse.js1717780576380134380 0
 93/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/object/is-extensible.js1717780576236134376 0
 89/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/object/to-string.js1717780576356134379 0
@@ -3195,7 +3195,7 @@
 96/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/full/string/virtual/strike.js1717780576328134379 0
 112/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/transformer-postcss/src/PostCSSTransformer.js1717780575812134363 0
 95/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/object/is-sealed.js1717780576240134376 0
-69/home/cubics/Desktop/front/javascript/forkify/dist/index.5cd32be8.css1717613648748225074 0
+69/home/cubics/Desktop/front/javascript/forkify/dist/index.5cd32be8.css1717781499220162543 0
 82/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/array/map.js1717780576264134377 0
 90/home/cubics/Desktop/front/javascript/forkify/node_modules/caniuse-lite/data/regions/IR.js1717780576076134371 0
 92/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/array/last-index-of.js1717780576256134376 0
@@ -4991,7 +4991,7 @@
 93/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/actual/array/find-index.js1717780576164134374 0
 102/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/transformer-svg/lib/dependencies.js1717780575744134361 0
 90/home/cubics/Desktop/front/javascript/forkify/node_modules/css-tree/lib/generator/index.js1717780576024134369 0
-56/home/cubics/Desktop/front/javascript/forkify/index.html1717358270140043461 0
+56/home/cubics/Desktop/front/javascript/forkify/index.html1717845978248311119 0
 95/home/cubics/Desktop/front/javascript/forkify/node_modules/@swc/helpers/esm/_async_generator.js1717780575916134366 0
 124/home/cubics/Desktop/front/javascript/forkify/node_modules/@msgpackr-extract/msgpackr-extract-linux-x64/node.napi.glibc.node1717780575804134363 0
 71/home/cubics/Desktop/front/javascript/forkify/node_modules/.bin/js-yaml1717780576524134385 0
@@ -5087,7 +5087,7 @@
 93/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/string/virtual/blink.js1717780576024134369 0
 90/home/cubics/Desktop/front/javascript/forkify/node_modules/cosmiconfig/dist/loaders.js.map1717780575856134364 0
 102/home/cubics/Desktop/front/javascript/forkify/node_modules/@babel/highlight/node_modules/chalk/license1717780575752134361 0
-61/home/cubics/Desktop/front/javascript/forkify/src/js/model.js1717651705542403640 0
+61/home/cubics/Desktop/front/javascript/forkify/src/js/model.js1717849259224411246 0
 97/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/runtime-js/src/helpers/browser1717780575880134365 1
 89/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/set/filter.js1717780576160134373 0
 92/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/internals/not-a-regexp.js1717780576272134377 0
@@ -5949,7 +5949,7 @@
 106/home/cubics/Desktop/front/javascript/forkify/node_modules/caniuse-lite/data/features/wasm-multi-memory.js1717780576128134372 0
 111/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/optimizer-htmlnano/node_modules/mdn-data/css1717780575876134365 1
 82/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/object/is.js1717780576244134376 0
-72/home/cubics/Desktop/front/javascript/forkify/dist/index.e37f48ea.js.map1717613894620232578 0
+72/home/cubics/Desktop/front/javascript/forkify/dist/index.e37f48ea.js.map1717781615400166088 0
 80/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/full/iterator1717780576340134379 1
 103/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/node_modules/css-tree/lib/data-patch.js1717780576012134369 0
 104/home/cubics/Desktop/front/javascript/forkify/node_modules/caniuse-lite/data/features/custom-elements.js1717780576032134370 0
@@ -7325,7 +7325,7 @@
 80/home/cubics/Desktop/front/javascript/forkify/node_modules/base-x/src/index.d.ts1717780575764134361 0
 94/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/actual/instance/includes.js1717780576208134375 0
 96/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/actual/instance/find-index.js1717780576164134374 0
-69/home/cubics/Desktop/front/javascript/forkify/dist/icons.21bad73c.svg1717613648744225074 0
+69/home/cubics/Desktop/front/javascript/forkify/dist/icons.21bad73c.svg1717781499256162544 0
 93/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/actual/instance/unshift.js1717780576372134380 0
 132/home/cubics/Desktop/front/javascript/forkify/node_modules/@parcel/optimizer-htmlnano/node_modules/css-tree/lib/syntax/node/Block.js1717780575828134363 0
 64/home/cubics/Desktop/front/javascript/forkify/node_modules/json51717780575836134364 1
@@ -8469,7 +8469,7 @@
 99/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/typed-array/iterator.js1717780576248134376 0
 91/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/es/string/virtual/sup.js1717780576336134379 0
 100/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/typed-array/to-sorted.js1717780576348134379 0
-61/home/cubics/Desktop/front/javascript/forkify/dist/index.html1717613648732225074 0
+61/home/cubics/Desktop/front/javascript/forkify/dist/index.html1717781499216162543 0
 95/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/features/typed-array/join.js1717780576248134376 0
 117/home/cubics/Desktop/front/javascript/forkify/node_modules/csso/node_modules/css-tree/cjs/syntax/config/generator.cjs1717780575896134365 0
 87/home/cubics/Desktop/front/javascript/forkify/node_modules/core-js/internals/perform.js1717780576284134377 0
